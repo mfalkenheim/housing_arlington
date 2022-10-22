@@ -3,7 +3,6 @@ import numpy as np
 from urllib import request      
 import gzip
 
-print("hello World")
 
 url = "https://download.data.arlingtonva.us/RealEstate/ImprovementExterior.txt"
 improvement_exterior = pd.read_csv(request.urlopen(url), header=0, sep='|')
