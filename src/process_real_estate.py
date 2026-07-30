@@ -138,6 +138,27 @@ def main():
     plt.savefig(chart_filename, dpi=150)
     print(f"Generated chart and saved to {chart_filename}.")
 
+    # Generate Second Chart: Four Shares
+    print("Generating line chart of the four assessment shares...")
+    plt.figure(figsize=(10, 6))
+    plt.plot(pivot_df.index.to_numpy(), pivot_df["Truly Commercial Share (%)"].to_numpy(), marker="o", linewidth=2, color="#1f77b4", label="Truly Commercial")
+    plt.plot(pivot_df.index.to_numpy(), pivot_df["Rental Apartments Share (%)"].to_numpy(), marker="s", linewidth=2, color="#ff7f0e", label="Rental Apartments")
+    plt.plot(pivot_df.index.to_numpy(), pivot_df["Condominiums Share (%)"].to_numpy(), marker="^", linewidth=2, color="#2ca02c", label="Condominiums")
+    plt.plot(pivot_df.index.to_numpy(), pivot_df["Other Residential Share (%)"].to_numpy(), marker="d", linewidth=2, color="#d62728", label="Other Residential")
+    
+    plt.title("Arlington County Real Estate Assessment: Four Property Class Shares (2000-2026)", fontsize=13, fontweight="bold", pad=15)
+    plt.xlabel("Year", fontsize=11, labelpad=10)
+    plt.ylabel("Share of Total Assessment (%)", fontsize=11, labelpad=10)
+    plt.grid(True, linestyle="--", alpha=0.6)
+    plt.xticks(pivot_df.index[::2].to_numpy(), rotation=45)
+    plt.ylim(0, 100)
+    plt.legend(fontsize=10, loc="best")
+    plt.tight_layout()
+
+    four_chart_filename = "four_shares_chart.png"
+    plt.savefig(four_chart_filename, dpi=150)
+    print(f"Generated four shares chart and saved to {four_chart_filename}.")
+
     # Print summary table for recent years
     print("\n" + "="*80)
     print("SUMMARY COMPARISON TABLE (Recent Years, $ Billions)")
