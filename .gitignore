@@ -1,0 +1,8 @@
+# Data files
+src/PropertyRedacted.txt
+src/Assessment.txt.gz
+
+# Python caching
+__pycache__/
+*.py[cod]
+*$py.class
